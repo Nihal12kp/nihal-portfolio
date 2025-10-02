@@ -1,40 +1,64 @@
 import { FaGithub, FaInstagram, FaLinkedin } from "react-icons/fa";
+import { motion } from "framer-motion";
 import logo from "../assets/nihallogo.jpg";
+
 const Navbar = () => {
   return (
-    <nav className="flex items-center justify-between py-6">
+    <motion.nav
+      className="flex flex-wrap lg:flex-nowrap items-center justify-between py-4 px-6 lg:px-20 sticky top-0 z-50"
+      initial={{ y: -50, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.8 }}
+    >
+      {/* Logo Section */}
       <div className="flex flex-shrink-0 items-center">
         <a href="/" aria-label="Home">
-          <img src={logo} className="mx-2" width={50} height={33} />"
+          <motion.img
+            src={logo}
+            alt="Logo"
+            className="mx-2 w-12 h-auto lg:w-14"
+            whileHover={{ scale: 1.1 }}
+            transition={{ type: "spring", stiffness: 150 }}
+          />
         </a>
       </div>
-      <div className="m-8 flex items-center justify-center gap-4 text-2xl">
-        <a
+
+      {/* Social Icons */}
+      <div className="mt-4 lg:mt-0 flex items-center justify-center gap-6 text-2xl">
+        <motion.a
           href="https://www.linkedin.com/in/mhmdnihalkp"
-          target="-blank"
+          target="_blank"
           rel="noopener noreferrer"
           aria-label="LinkedIn"
+          whileHover={{ scale: 1.2, color: "#0A66C2" }}
+          transition={{ type: "spring", stiffness: 150 }}
         >
           <FaLinkedin />
-        </a>
-        <a
+        </motion.a>
+
+        <motion.a
           href="https://www.github.com/in/Nihal12kp"
-          target="-blank"
+          target="_blank"
           rel="noopener noreferrer"
           aria-label="GitHub"
+          whileHover={{ scale: 1.2, color: "#171515" }}
+          transition={{ type: "spring", stiffness: 150 }}
         >
-          <FaGithub/>
-        </a>
-        <a
+          <FaGithub />
+        </motion.a>
+
+        <motion.a
           href="https://www.instagram.com/in/_.ni_hal"
-          target="-blank"
+          target="_blank"
           rel="noopener noreferrer"
-          aria-label="GitHub"
+          aria-label="Instagram"
+          whileHover={{ scale: 1.2, color: "#E4405F" }}
+          transition={{ type: "spring", stiffness: 150 }}
         >
-          <FaInstagram/>
-        </a>
+          <FaInstagram />
+        </motion.a>
       </div>
-    </nav>
+    </motion.nav>
   );
 };
 

@@ -1,14 +1,20 @@
+import { motion } from "framer-motion";
 import profilepic from "../assets/nihalprofile.jpg";
 import { HERO_CONTENT } from "../constants/index.js";
 
 const Hero = () => {
   return (
-    <div className="pb-4 lg:mb-36">
-      <div className="flex flex-wrap lg:flex-row-reverse">
+    <div className="pb-8 lg:pb-36 px-4 lg:px-20">
+      <div className="flex flex-wrap lg:flex-row-reverse items-center justify-center">
         {/* Profile Section */}
-        <div className="w-full lg:w-1/2 flex justify-center lg:p-8">
-          <div className="relative max-w-md">
-            <img
+        <motion.div
+          className="w-full lg:w-1/2 flex justify-center lg:p-8"
+          initial={{ opacity: 0, x: 100 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 1 }}
+        >
+          <div className="relative max-w-md w-full">
+            <motion.img
               src={profilepic}
               alt="Muhammed Nihal"
               className="w-full h-auto rounded-3xl"
@@ -23,31 +29,58 @@ const Hero = () => {
                 maskRepeat: "no-repeat",
                 maskSize: "100% 100%",
               }}
+              whileHover={{ scale: 1.05 }}
+              transition={{ type: "spring", stiffness: 100 }}
             />
           </div>
-        </div>
+        </motion.div>
 
         {/* Text Section */}
-        <div className="w-full lg:w-1/2 flex flex-col items-center lg:items-start mt-10">
-          <h2 className="pb-2 text-4xl tracking-tighter lg:text-8xl">
+        <motion.div
+          className="w-full lg:w-1/2 flex flex-col items-center lg:items-start mt-10 lg:mt-0"
+          initial={{ opacity: 0, x: -100 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 1 }}
+        >
+          <motion.h2
+            className="pb-2 text-4xl lg:text-8xl text-center lg:text-left tracking-tighter"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3, duration: 0.8 }}
+          >
             Muhammed Nihal
-          </h2>
-          <span className="bg-gradient-to-r from-stone-300 to-stone-600 bg-clip-text text-3xl tracking-tight text-transparent">
+          </motion.h2>
+
+          <motion.span
+            className="bg-gradient-to-r from-stone-300 to-stone-600 bg-clip-text text-3xl lg:text-5xl text-transparent tracking-tight text-center lg:text-left"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.5, duration: 0.8 }}
+          >
             Software Developer
-          </span>
-          <p className="my-2 max-w-lg py-6 text-xl leading-relaxed tracking-tighter">
+          </motion.span>
+
+          <motion.p
+            className="my-4 max-w-lg py-6 text-lg lg:text-xl leading-relaxed tracking-tight text-center lg:text-left"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.7, duration: 0.8 }}
+          >
             {HERO_CONTENT}
-          </p>
-          <a
+          </motion.p>
+
+          <motion.a
             href="/resume.pdf"
             target="_blank"
             rel="noopener noreferrer"
             download
-            className="bg-white rounded-full px-6 py-3 text-sm font-semibold text-stone-800 shadow-md hover:shadow-lg transition"
+            className="bg-white rounded-full px-6 py-3 text-sm lg:text-base font-semibold text-stone-800 shadow-md hover:shadow-lg transition"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
           >
             Download Resume
-          </a>
-        </div>
+          </motion.a>
+        </motion.div>
       </div>
     </div>
   );
