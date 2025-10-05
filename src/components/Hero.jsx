@@ -70,7 +70,7 @@ const Hero = () => {
           </motion.p>
 
           <motion.a
-            href="/nihal_resume.pdf"
+            href="/Nihalkp_resume.pdf"
             target="_blank"
             rel="noopener noreferrer"
             download
